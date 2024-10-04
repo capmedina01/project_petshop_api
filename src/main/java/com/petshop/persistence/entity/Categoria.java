@@ -2,6 +2,8 @@ package com.petshop.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "CATEGORIAS")
 public class Categoria {
@@ -15,6 +17,8 @@ public class Categoria {
 
     private boolean estado;
 
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> productos;
 
 
     public int getCategoriaID() {

@@ -26,6 +26,9 @@ public class Compra {
     private String estado;
 
 
+    @ManyToOne
+    @JoinColumn()
+    private Cliente cliente;
 
     public int getCompraID() {
         return compraID;
