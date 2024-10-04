@@ -3,6 +3,7 @@ package com.petshop.persistence.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "COMPRAS")
@@ -27,8 +28,11 @@ public class Compra {
 
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> comprasProductos;
 
     public int getCompraID() {
         return compraID;
